@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://csnjwftxm0ugk"]
+[gd_scene load_steps=31 format=3 uid="uid://csnjwftxm0ugk"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_fdxbx"]
 [ext_resource type="Texture2D" uid="uid://djnjy53rseqcb" path="res://Assets/sheet.png" id="1_u63io"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://Exit.gd" id="3_nw143"]
 [ext_resource type="Texture2D" uid="uid://bqbx3i8vss104" path="res://Assets/exit.png" id="4_fqg0a"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="7_rg683"]
+[ext_resource type="PackedScene" uid="uid://b6suvu2gs8jkm" path="res://bat.tscn" id="7_stcwm"]
+[ext_resource type="Script" path="res://bat.gd" id="8_1suqu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73lwd"]
 texture = ExtResource("1_u63io")
@@ -859,6 +861,12 @@ animation = &"Walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_u8nx2")
+
+[node name="Enemy_Container" type="Node2D" parent="."]
+
+[node name="Bat" parent="Enemy_Container" instance=ExtResource("7_stcwm")]
+position = Vector2(112, 104)
+script = ExtResource("8_1suqu")
 
 [node name="Platform" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xfx8r")
